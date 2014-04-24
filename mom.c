@@ -5,10 +5,10 @@
 //  Have fun, don't break anything, I'm not responsible for anything you break.
 //
 
+#include <iostream.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <iostream>
-#include <string>
 #include <stdio.h>
 #include <dirent.h>
 
