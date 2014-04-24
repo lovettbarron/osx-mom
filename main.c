@@ -2,8 +2,7 @@
 //  main.cpp
 //  mom
 //
-//  Created by Andrew Lovett-Barron on 3/23/14.
-//  Copyright (c) 2014 decayio. All rights reserved.
+//  Have fun, don't break anything, I'm not responsible for anything you break.
 //
 
 #include <sys/types.h>
@@ -44,18 +43,18 @@ static int listdir(char *dir) {
 static char * mom_get_downloads_dir() {
     const char* homedir = mom_check_home_dir();
     const char* downloaddir = "/Downloads";
-    char* dir = new char[sizeof(homedir)+sizeof(downloaddir)+1];//malloc(sizeof(homedir)+sizeof(downloaddir)+1);
+    char* dir =  malloc(sizeof(homedir)+sizeof(downloaddir)+1);//malloc(sizeof(homedir)+sizeof(downloaddir)+1);
     strcpy(dir, homedir);
     strcat(dir,downloaddir);
-    free(dir);
     return dir;
+    free dir;
 }
 
 static const int mom_check_if_downloads_is_messy() {
     const char * dir = mom_get_downloads_dir();
     const int count = listdir((char*)dir);
-
     return count;
+    
 }
 
 int main(int argc, const char * argv[])
@@ -63,24 +62,24 @@ int main(int argc, const char * argv[])
     int whatMomThinksIsMessy = 100;
     cout << mom_check_home_dir() << endl;;
     if(mom_check_if_downloads_is_messy() > whatMomThinksIsMessy) {
-        const char * downloadDir = mom_get_downloads_dir();
-        char * momKnowsBest = new char[sizeof(downloadDir)+5+1];
+        char * downloadDir = mom_get_downloads_dir();
+        char * momKnowsBest = malloc[sizeof(downloadDir)+5+1];
         strcat(momKnowsBest,"open ");
-        momKnowsBest = strcat(momKnowsBest, downloadDir);
+        strcat(momKnowsBest, downloadDir);
         
         char * cleanup = " && mkdir !!!_CLEAN_THIS_UP";
-        char * orders = new char[sizeof(downloadDir) + 3 + sizeof(cleanup) + 1];
-        
+        char * orders = char[sizeof(downloadDir) + 3 + sizeof(cleanup) + 1];
         strcat(orders,"cd ");
         strcat(orders,downloadDir);
         strcat(orders,cleanup);
         
+        cout << momKnowsBest << endl;
+        cout << orders << endl;
+        
         system(momKnowsBest);
         system(orders);
+        free momKnowsBest;
+        free orders;
     }
-    
-    
-    
     return 0;
 }
-
